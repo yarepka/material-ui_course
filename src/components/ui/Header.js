@@ -145,19 +145,18 @@ export default function Header(props) {
   const classes = useStyles();
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down('md'));
+
+  // destructure props comming from App component
+  const { value, setValue, selectedIndex, setSelectedIndex } = props;
+
   // Sidedrawer settings for iOS(Apple, etc.)
   const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
-
   // should drawer be openned (should be down to 'md')
   const [openDrawer, setOpenDrawer] = useState(false);
-  // which tab user is currently on
-  const [value, setValue] = useState(0);
-  // about which element to show menu
+  // above which element to show menu
   const [anchorEl, setAnchorEl] = useState(null);
   // should menu be openned
   const [openMenu, setOpenMenu] = useState(false);
-  // selected element in menu
-  const [selectedIndex, setSelectedIndex] = useState(0);
 
   const handleChange = (e, newValue) => {
     setValue(newValue);
