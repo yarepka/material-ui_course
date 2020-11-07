@@ -14,6 +14,7 @@ import customSoftwareIcon from '../assets/Custom Software Icon.svg';
 import mobileAppsIcon from '../assets/mobileIcon.svg';
 import websitesIcon from '../assets/websiteIcon.svg';
 import revolutionBackground from '../assets/repeatingBackground.svg';
+import infoBackground from '../assets/infoBackground.svg';
 
 const useStyles = makeStyles((theme) => ({
   animation: {
@@ -108,12 +109,21 @@ const useStyles = makeStyles((theme) => ({
       width: '100%',
     },
   },
+  infoBackground: {
+    backgroundImage: `url(${infoBackground})`,
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    height: '100%',
+    width: '100%',
+  },
 }));
 
 export default function LandinPage() {
   const classes = useStyles();
   const theme = useTheme();
   const matchesSM = useMediaQuery(theme.breakpoints.down('sm'));
+  const matchesXS = useMediaQuery(theme.breakpoints.down('xs'));
 
   const defaultOptions = {
     loop: true,
@@ -280,7 +290,7 @@ export default function LandinPage() {
         </Grid>
       </Grid>
 
-      {/* ----- Revolution ----- */}
+      {/* ----- The Revolution Block ----- */}
       <Grid item>
         <Grid
           container
@@ -318,6 +328,81 @@ export default function LandinPage() {
             </CardContent>
           </Card>
           <div className={classes.revolutionBackground} />
+        </Grid>
+      </Grid>
+
+      {/* ----- Information Block ----- */}
+      <Grid item>
+        <Grid
+          container
+          style={{ height: '80em' }}
+          direction='row'
+          alignItems='center'
+        >
+          <Grid
+            item
+            container
+            style={{ position: 'absolute', textAlign: matchesXS && 'center' }}
+            direction={matchesXS ? 'column' : 'row'}
+            spacing={matchesXS ? 10 : 0}
+          >
+            {/* About Us */}
+            <Grid
+              item
+              sm
+              style={{ marginLeft: matchesXS ? 0 : matchesSM ? '2em' : '5em' }}
+            >
+              <Grid container direction='column'>
+                <Typography variant='h2' style={{ color: 'white' }}>
+                  About Us
+                </Typography>
+                <Typography variant='subtitle2'>Let's get personal.</Typography>
+                <Grid item>
+                  <Button
+                    variant='outlined'
+                    style={{ color: 'white', borderColor: 'white' }}
+                    className={classes.learnButton}
+                  >
+                    <span style={{ marginRight: 10 }}>Learn More</span>
+                    <ButtonArrow width={10} height={10} fill='white' />
+                  </Button>
+                </Grid>
+              </Grid>
+            </Grid>
+
+            {/* Contact Us */}
+            <Grid
+              item
+              sm
+              style={{
+                marginRight: matchesXS ? 0 : matchesSM ? '2em' : '5em',
+                textAlign: matchesXS ? 'center' : 'right',
+              }}
+            >
+              <Grid container direction='column'>
+                <Typography variant='h2' style={{ color: 'white' }}>
+                  Contact Us
+                </Typography>
+                <Typography variant='subtitle2'>
+                  Say hello!{' '}
+                  <span role='img' label='waving hand'>
+                    ✋
+                  </span>
+                </Typography>
+                <Grid item>
+                  <Button
+                    variant='outlined'
+                    style={{ color: 'white', borderColor: 'white' }}
+                    className={classes.learnButton}
+                  >
+                    <span style={{ marginRight: 10 }}>Learn More</span>
+                    <ButtonArrow width={10} height={10} fill='white' />
+                  </Button>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Grid>
+          <div className={classes.infoBackground} />
         </Grid>
       </Grid>
     </Grid>
