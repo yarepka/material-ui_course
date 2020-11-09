@@ -9,6 +9,8 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 
+import CallToAction from './ui/CallToAction';
+
 import animationData from '../animations/landinganimation/data';
 import customSoftwareIcon from '../assets/Custom Software Icon.svg';
 import mobileAppsIcon from '../assets/mobileIcon.svg';
@@ -385,6 +387,7 @@ export default function LandinPage() {
                 </Typography>
                 <Typography variant='subtitle2'>
                   Say hello!{' '}
+                  {/* I would probably delete this one, but let it stay for future reference */}
                   <span role='img' label='waving hand'>
                     ✋
                   </span>
@@ -404,6 +407,11 @@ export default function LandinPage() {
           </Grid>
           <div className={classes.infoBackground} />
         </Grid>
+      </Grid>
+
+      {/* ----- Call To Action Block ----- */}
+      <Grid item>
+        <CallToAction />
       </Grid>
     </Grid>
   );
