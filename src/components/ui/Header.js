@@ -229,6 +229,9 @@ export default function Header(props) {
           setSelectedIndex(route.selectedIndex);
         }
       }
+      if (window.location.pathname === '/estimate') {
+        setValue(5);
+      }
     });
   }, [value, menuOptions, selectedIndex, routes]);
 
@@ -258,6 +261,9 @@ export default function Header(props) {
         color='secondary'
         to='/estimate'
         className={classes.button}
+        component={Link}
+        to='/estimate'
+        onClick={() => setValue(5)}
       >
         Free Estimate
       </Button>
