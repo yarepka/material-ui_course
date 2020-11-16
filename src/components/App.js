@@ -7,6 +7,7 @@ import Header from './ui/Header';
 import Footer from './ui/Footer';
 import LandingPage from './LandingPage';
 import Services from './Services';
+import CustomSoftware from './CustomSoftware';
 
 function App() {
   // selected element in menu
@@ -49,7 +50,13 @@ function App() {
           <Route
             exact
             path='/customsoftware'
-            component={() => <div>Custom Software</div>}
+            render={(props) => (
+              <CustomSoftware
+                {...props}
+                setValue={setValue}
+                setSelectedIndex={setSelectedIndex}
+              />
+            )}
           />
           <Route
             exact
